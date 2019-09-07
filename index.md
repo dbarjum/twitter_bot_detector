@@ -1,4 +1,8 @@
-# Detecting Twitter Bots
+
+---
+Title: Detecting Twitter Bots
+---
+
 
 >By Yalda Amini, João Araujo and Daniel Barjum, May 2019
 
