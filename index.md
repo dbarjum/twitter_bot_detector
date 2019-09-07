@@ -1,5 +1,5 @@
 ---
-Title: Detecting Twitter Bots
+title: Detecting Twitter Bots
 ---
 
 
