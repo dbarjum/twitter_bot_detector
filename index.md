@@ -1,4 +1,3 @@
-
 ---
 Title: Detecting Twitter Bots
 ---
