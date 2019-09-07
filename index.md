@@ -2,6 +2,8 @@
 Title: Detecting Twitter Bots
 ---
 
+#Detecting Twitter Bots
+
 >By Yalda Amini, João Araujo and Daniel Barjum, May 2019
 
 ## Problem Statement
@@ -16,4 +18,4 @@ Bots have a heavy presence in the social media. “Of all tweeted links to popul
 1. Tweepy Python Library.
 2. Twitter’s developer resources: [developer.twitter.com](developer.twitter.com).
 3. Kudugunta, Sneha, and Emilio Ferrara. [“Deep Neural Networks for Bot Detection.” Information Sciences 467 (October 2018)](https://doi.org/10.1016/j.ins.2018.08.019).
-4. Twitter Bots: [An Analysis of the Links Automated Accounts Share | Pew Research Center,” April 9, 2018(https://www.pewinternet.org/2018/04/09/bots-in-the-twittersphere/).
+4. Twitter Bots: [An Analysis of the Links Automated Accounts Share | Pew Research Center,” April 9, 2018](https://www.pewinternet.org/2018/04/09/bots-in-the-twittersphere/).
