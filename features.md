@@ -539,3 +539,179 @@ df['second'] = df.created_at.dt.second
 
 df.to_csv('data/clean_tweets.csv')
 ```
+
+## Cleaning User Data
+
+We first read the data for users from the first file to create a dataframe:
+
+```Python
+df_users = pd.read_csv("data/datasets_full/genuine_accounts/users.csv")
+df_users["bots"] = 0
+
+df_users.head()
+```
+
+
+<table class="dataframe" border="1">
+  <thead>
+    <tr>
+      <th></th>
+      <th>bots</th>
+      <th>contributors_enabled</th>
+      <th>crawled_at</th>
+      <th>created_at</th>
+      <th>default_profile</th>
+      <th>default_profile_image</th>
+      <th>description</th>
+      <th>favourites_count</th>
+      <th>follow_request_sent</th>
+      <th>followers_count</th>
+      <th>...</th>
+      <th>profile_use_background_image</th>
+      <th>protected</th>
+      <th>screen_name</th>
+      <th>statuses_count</th>
+      <th>time_zone</th>
+      <th>timestamp</th>
+      <th>updated</th>
+      <th>url</th>
+      <th>utc_offset</th>
+      <th>verified</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>NaN</td>
+      <td>2015-05-02 06:41:46</td>
+      <td>Tue Jun 11 11:20:35 +0000 2013</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15years ago X.Lines24</td>
+      <td>265</td>
+      <td>NaN</td>
+      <td>208</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0918Bask</td>
+      <td>2177</td>
+      <td>NaN</td>
+      <td>2013-06-11 13:20:35</td>
+      <td>2016-03-15 15:53:47</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>NaN</td>
+      <td>2015-05-01 17:20:27</td>
+      <td>Tue May 13 10:37:57 +0000 2014</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>保守見習い地元大好き人間。 経済学、電工、仏教を勉強中、ちなDeではいかんのか？ (*^◯^*)</td>
+      <td>3972</td>
+      <td>NaN</td>
+      <td>330</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>1120Roll</td>
+      <td>2660</td>
+      <td>Tokyo</td>
+      <td>2014-05-13 12:37:57</td>
+      <td>2016-03-15 15:53:48</td>
+      <td>NaN</td>
+      <td>32400.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>NaN</td>
+      <td>2015-05-01 18:48:28</td>
+      <td>Wed May 04 23:30:37 +0000 2011</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Let me see what your best move is!</td>
+      <td>1185</td>
+      <td>NaN</td>
+      <td>166</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>14KBBrown</td>
+      <td>1254</td>
+      <td>Eastern Time (US &amp; Canada)</td>
+      <td>2011-05-05 01:30:37</td>
+      <td>2016-03-15 15:53:48</td>
+      <td>NaN</td>
+      <td>-14400.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>NaN</td>
+      <td>2015-05-01 13:55:16</td>
+      <td>Fri Sep 17 14:02:10 +0000 2010</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>20. menna: #farida #nyc and the 80s actually y...</td>
+      <td>60304</td>
+      <td>NaN</td>
+      <td>2248</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>wadespeters</td>
+      <td>202968</td>
+      <td>Greenland</td>
+      <td>2010-09-17 16:02:10</td>
+      <td>2016-03-15 15:53:48</td>
+      <td>http://t.co/rGV0HIJGsu</td>
+      <td>-7200.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>NaN</td>
+      <td>2015-05-02 01:17:32</td>
+      <td>Fri Feb 06 04:10:49 +0000 2015</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>Cosmetologist</td>
+      <td>5</td>
+      <td>NaN</td>
+      <td>21</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>191a5bd05da04dc</td>
+      <td>82</td>
+      <td>NaN</td>
+      <td>2015-02-06 05:10:49</td>
+      <td>2016-03-15 15:53:48</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 41 columns</p>
+
+We kept the variables that might have explanatory power, and/or have enough information that would be useful for our models. Many of the excluded variables did not have enough information to be useful (mostly NaNs). Others did not seem contribute at all for identifying fake tweets, for example the date in which the account was created (although we found useful the informatoin on the date in which the tweets are created, and we kept the latter). And we save the clean data in a csv file.
+
+```Python
+users_features_to_keep = ["favourites_count", "followers_count", "friends_count", "id", "listed_count", "statuses_count", "bots"]
+
+df_users_clean = df_users[users_features_to_keep]
+df_users_clean.rename(columns={'id': 'user_id'}, inplace=True)
+
+df_users_clean.to_csv("data/clean_users.csv", index=False)
+```
+
