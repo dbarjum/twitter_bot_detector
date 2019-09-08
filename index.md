@@ -3,6 +3,9 @@ title: Detecting Twitter Bots
 ---
 
 
+![google recaptcha](https://developers.google.com/recaptcha/images/newCaptchaAnchor.gif)
+<p style="font-size:70%;"><i>source: google recaptcha</i></p>
+
 >By Yalda Amini, João Araujo and Daniel Barjum, May 2019
 
 ## Introduction and Problem Statement
